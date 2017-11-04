@@ -1,0 +1,53 @@
+<dashboard>
+  <label>Overview</label>
+  <row>
+    <panel>
+      <title>Updates Needing Approval</title>
+      <single>
+        <title>Security</title>
+        <search>
+          <query>`wsus-index` Classification="Security Updates" Approved="NotApproved" | dedup UpdateId | stats count</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="colorMode">none</option>
+        <option name="drilldown">all</option>
+        <option name="rangeColors">["0x65a637","0xd93f3c"]</option>
+        <option name="rangeValues">[0]</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">1</option>
+      </single>
+      <single>
+        <title>Critical</title>
+        <search>
+          <query>`wsus-index` Classification="Critical Updates" Approved="NotApproved" | dedup UpdateId | stats count</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="colorMode">none</option>
+        <option name="drilldown">all</option>
+        <option name="rangeColors">["0x65a637","0xd93f3c"]</option>
+        <option name="rangeValues">[0]</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="aboveLabel">ddd</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">1</option>
+      </single>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Test</title>
+        <search>
+          <query>test</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.drilldown">none</option>
+      </chart>
+    </panel>
+  </row>
+</dashboard>

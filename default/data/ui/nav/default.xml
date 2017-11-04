@@ -1,0 +1,4 @@
+<nav color="#337AB7">
+  <view name="overview" default="true" />
+  <view name="search" />
+</nav>

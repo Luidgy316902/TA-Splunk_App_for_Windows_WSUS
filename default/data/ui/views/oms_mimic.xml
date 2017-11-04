@@ -1,0 +1,25 @@
+<dashboard>
+  <label>OMS Mimic</label>
+  <row>
+    <panel>
+      <viz type="viz_donut_c3.c3donut">
+        <title>Updates Needing Approval</title>
+        <search>
+          <query>`wsus-index` Approved="NotApproved" | dedup UpdateId | stats count by Classification | rename count as "Approval Needed" | table Classification "Approval Needed"</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="viz_donut_c3.c3donut.expand">1</option>
+        <option name="viz_donut_c3.c3donut.label_show">1</option>
+        <option name="viz_donut_c3.c3donut.label_threshold">.1</option>
+        <option name="viz_donut_c3.c3donut.label_value">value</option>
+        <option name="viz_donut_c3.c3donut.legend_position">right</option>
+        <option name="viz_donut_c3.c3donut.legend_show">1</option>
+        <option name="viz_donut_c3.c3donut.tooltip_show">true</option>
+        <option name="viz_donut_c3.c3donut.tooltip_value">default</option>
+      </viz>
+    </panel>
+  </row>
+</dashboard>
