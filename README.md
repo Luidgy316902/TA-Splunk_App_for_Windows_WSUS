@@ -6,10 +6,12 @@ wsus
 
 ## SourceTypes
 wsus:synchronizationreport
+wsus:event
 
 
 ## Reports
 WSUS - Synchronization Reports
+WSUS - Event History
 
 ## Contributing
 
