@@ -30,7 +30,7 @@ Task Clean {
 # Synopsis: Package Splunk App for uploading
 #=================================================================================================
 Task Package {
-    & 7z.exe a -ttar -xr!"$BuildArtifactsFolder" -xr!".Build.ps1" -xr!"Invoke-Build.ps1" "$BuildArtifactsFolder\TA-Splunk_App_for_Windows_WSUS.tar" .
+    & 7z.exe a -ttar -xr!"$BuildArtifactsFolder" -xr!".git" -xr!".Build.ps1" -xr!"Invoke-Build.ps1" "$BuildArtifactsFolder\TA-Splunk_App_for_Windows_WSUS.tar"  ..\TA-Splunk_App_for_Windows_WSUS
 }
 
 Task . Clean, Package, {
