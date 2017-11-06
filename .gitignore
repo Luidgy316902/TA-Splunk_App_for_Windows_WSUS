@@ -1,1 +1,3 @@
 .buildartifacts/
+.bundle/
+Gemfile.lock
