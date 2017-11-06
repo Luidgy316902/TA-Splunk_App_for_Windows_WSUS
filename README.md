@@ -2,16 +2,17 @@
 Welcome to the Splunk App for Windows WSUS.  Feel free to contribute or open isues if you have problems.
 
 ## Indexes
-wsus
+* wsus
 
 ## SourceTypes
-wsus:synchronizationreport
-wsus:event
+* wsus:synchronizationreport
+* wsus:event
+* wsus:update
 
 
 ## Reports
-WSUS - Synchronization Reports
-WSUS - Event History
+* WSUS - Synchronization Reports
+* WSUS - Event History
 
 ## Contributing
 
