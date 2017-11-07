@@ -3,12 +3,23 @@
 All notable changes to this project will be documented in this file.
 This project follows semver to help clients understand the impact of updates/changes.  Find out more at http://semver.org.
 
+## [v0.3.0](https://github.com/tragiccode/TA-Splunk_App_for_Windows_WSUS/tree/v0.3.0) (2017-11-07)
+[Full Changelog](https://github.com/tragiccode/TA-Splunk_App_for_Windows_WSUS/compare/v0.2.0...v0.3.0)
+
+**Closed issues:**
+
+- Add WSUS Reports to navbar [\#6](https://github.com/TraGicCode/TA-Splunk_App_for_Windows_WSUS/issues/6)
+
+**Merged pull requests:**
+
+- Refactored how sync type is obtained [\#11](https://github.com/TraGicCode/TA-Splunk_App_for_Windows_WSUS/pull/11) ([TraGicCode](https://github.com/TraGicCode))
+- Wsus update sourcetype [\#10](https://github.com/TraGicCode/TA-Splunk_App_for_Windows_WSUS/pull/10) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.2.0](https://github.com/tragiccode/TA-Splunk_App_for_Windows_WSUS/tree/v0.2.0) (2017-11-06)
 [Full Changelog](https://github.com/tragiccode/TA-Splunk_App_for_Windows_WSUS/compare/v0.1.0...v0.2.0)
 
 **Closed issues:**
 
-- Add WSUS Reports to navbar [\#6](https://github.com/TraGicCode/TA-Splunk_App_for_Windows_WSUS/issues/6)
 - Add ChangeLog Generator [\#5](https://github.com/TraGicCode/TA-Splunk_App_for_Windows_WSUS/issues/5)
 
 **Merged pull requests:**
