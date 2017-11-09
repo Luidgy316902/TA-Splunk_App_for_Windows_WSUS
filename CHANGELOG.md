@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 This project follows semver to help clients understand the impact of updates/changes.  Find out more at http://semver.org.
 
+## [v0.3.2](https://github.com/tragiccode/TA-Splunk_App_for_Windows_WSUS/tree/v0.3.2) (2017-11-09)
+[Full Changelog](https://github.com/tragiccode/TA-Splunk_App_for_Windows_WSUS/compare/v0.3.1...v0.3.2)
+
+**Merged pull requests:**
+
+- Pull next version from app.conf [\#14](https://github.com/TraGicCode/TA-Splunk_App_for_Windows_WSUS/pull/14) ([TraGicCode](https://github.com/TraGicCode))
+- Update app.conf to real version [\#13](https://github.com/TraGicCode/TA-Splunk_App_for_Windows_WSUS/pull/13) ([TraGicCode](https://github.com/TraGicCode))
+
 ## [v0.3.1](https://github.com/tragiccode/TA-Splunk_App_for_Windows_WSUS/tree/v0.3.1) (2017-11-07)
 [Full Changelog](https://github.com/tragiccode/TA-Splunk_App_for_Windows_WSUS/compare/v0.3.0...v0.3.1)
 
