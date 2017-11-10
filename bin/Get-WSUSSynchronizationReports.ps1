@@ -19,11 +19,11 @@ ForEach($SynchronizationHistoryEntry in $SynchronizationHistory)
     {
         If($Update.PublicationState -eq "Expired")
         {
-            $UpdateStats.ExpiredUpdateCountForReport++
+            $UpdateStats.ExpiredUpdates++
         }
         If($Update.PublicationState -eq "Published")
         {
-            $UpdateStats.NewUpdatesCountForReport++
+            $UpdateStats.NewUpdates++
         }
     }
     Merge-Object -Base $SynchronizationHistoryEntry -Additional $UpdateStats
