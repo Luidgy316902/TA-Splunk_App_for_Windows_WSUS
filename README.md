@@ -14,6 +14,13 @@ Welcome to the Splunk App for Windows WSUS.  Feel free to contribute or open isu
 * WSUS - Synchronization Reports
 * WSUS - Event History
 
+## Debugging
+In order to see if any of the underlying powershell scripts are blowing up or having issues simply run the following search from your splunk server.
+
+```
+    index="_internal" log_level=ERROR host="wsusserv-001.attlocal.net" sourcetype=splunkd
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/TraGicCode/TA-Splunk_App_for_Windows_WSUS/fork )
