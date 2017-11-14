@@ -1,9 +1,26 @@
-. $SplunkHome/etc/system/bin/Merge-Object.ps1
+# Includes
+. "$SplunkHome\etc\apps\TA-Splunk_App_for_Windows_WSUS\bin\Merge-Object.ps1"
+. "$SplunkHome\etc\apps\TA-Splunk_App_for_Windows_WSUS\bin\Ensure-CheckpointFile.ps1"
+. "$SplunkHome\etc\apps\TA-Splunk_App_for_Windows_WSUS\bin\Get-CheckpointFromFile.ps1"
+. "$SplunkHome\etc\apps\TA-Splunk_App_for_Windows_WSUS\bin\Set-CheckpointInFile.ps1"
+
+# Checkpoint File
+$CheckpointFile = Join-Path -Path $SplunkHome -ChildPath "etc\apps\TA-Splunk_App_for_Windows_WSUS\bin\checkpoint-wsus-synchronizationreport.txt"
+$CheckpointDateTimeFormat = "MM/dd/yyyy HH:mm:ss.fff"
+$InitialCheckpointValue = [DateTime]::MinValue.ToString($CheckpointDateTimeFormat) + " GMT"
+
+Ensure-CheckpointFile -File $CheckpointFile -InitialCheckpointValue $InitialCheckpointValue
+$CurrentCheckpoint = Get-CheckpointFromFile -File $CheckpointFile
 
 
 $WsusServer = Get-WsusServer
-# The select-object essentially creates a new object for us
-$SynchronizationHistory = $WsusServer.GetSubscription().GetSynchronizationHistory() | Select-Object -Property *
+
+$SynchronizationHistory = $WsusServer.GetSubscription().GetSynchronizationHistory([DateTime]::Parse($CurrentCheckpoint).AddSeconds(1), [DateTime]::UtcNow) | Select-Object -Property *
+If($SynchronizationHistory.Count -eq 0)
+{
+    exit
+}
+
 ForEach($SynchronizationHistoryEntry in $SynchronizationHistory)
 {
     $UpdateScope = New-Object -TypeName Microsoft.UpdateServices.Administration.UpdateScope
@@ -28,3 +45,7 @@ ForEach($SynchronizationHistoryEntry in $SynchronizationHistory)
     }
     Merge-Object -Base $SynchronizationHistoryEntry -Additional $UpdateStats
 }
+
+# Synchronizations returned from above are from newest to oldest in the array
+$UpdatedCheckpointValue = $SynchronizationHistory[0].EndTime.ToString($CheckpointDateTimeFormat) + " GMT"
+Set-CheckpointInFile -File $CheckpointFile -CheckpointValue $UpdatedCheckpointValue
