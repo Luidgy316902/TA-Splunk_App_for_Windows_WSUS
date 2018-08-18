@@ -21,6 +21,11 @@ In order to see if any of the underlying powershell scripts are blowing up or ha
     index="_internal" log_level=ERROR host="wsusserv-001.attlocal.net" sourcetype=splunkd
 ```
 
+### Running Script interactively
+If you want to test the scripts that pull data and ensure they are working right simply setup the environment variables needed and then run the script.  It should not blow up and be idempotent
+$SplunkHome = 'C:\Program Files\SplunkUniversalForwarder\'
+.\Get-WSUSSynchronizationReports.ps1
+
 ## Contributing
 
 1. Fork it ( https://github.com/TraGicCode/TA-Splunk_App_for_Windows_WSUS/fork )
