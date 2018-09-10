@@ -1,0 +1,19 @@
+sudo: required
+language: python
+python:
+  - "2.7"
+cache: pip
+before_install:
+  - wget --output-document splunk-appinspect.tar.gz http://dev.splunk.com/goto/appinspectdownload
+  - pip install splunk-appinspect.tar.gz
+#install:
+#  - pip install bumpversion
+script:
+  - tar -zcvf /tmp/TA.tar.gz ../TA-* --exclude LICENSE --exclude .git --exclude .travis.yml
+  - script -q /dev/null -c "splunk-appinspect inspect /tmp/TA.tar.gz --mode precert" | tee /tmp/log
+  - grep -E "warning:[ ]+0" /tmp/log
+  - grep -E "failure:[ ]+0" /tmp/log
+  - grep -E "error:[ ]+0" /tmp/log
+
+#script:
+#  - splunk-appinspect inspect TA-Puppet_Enterprise --custom-checks-dir ./ --included-tags splunk_appinspect
